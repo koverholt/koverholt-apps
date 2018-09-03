@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rainfall-app
+spec:
+  selector:
+    matchLabels:
+      run: rainfall-app
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        run: rainfall-app
+    spec:
+      containers:
+      - name: rainfall
+        image: gcr.io/applications-213907/rainfall:1.4
+        ports:
+        - containerPort: 5000
