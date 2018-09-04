@@ -3,9 +3,16 @@ kind: Ingress
 metadata:
   name: ingress
   annotations:
-    kubernetes.io/ingress.global-static-ip-name: "apps"
+    kubernetes.io/ingress.global-static-ip-name: "koverholt-apps-ip"
 spec:
-  backend:
-    serviceName: rainfall-service
-    servicePort: 5000
-
+  rules:
+  - http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: default-service
+          servicePort: 8080
+      - path: /rainfall/*
+        backend:
+          serviceName: rainfall-service
+          servicePort: 5000
