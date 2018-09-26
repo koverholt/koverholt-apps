@@ -6,13 +6,9 @@ metadata:
     kubernetes.io/ingress.global-static-ip-name: "koverholt-apps-ip"
 spec:
   rules:
-  - http:
+  - host: rainfall.koverholt.com
+    http:
       paths:
-      - path: /*
-        backend:
-          serviceName: default-service
-          servicePort: 8080
-      - path: /rainfall/*
-        backend:
-          serviceName: rainfall-service
-          servicePort: 5000
+        - backend:
+            serviceName: rainfall-service
+            servicePort: 5000
