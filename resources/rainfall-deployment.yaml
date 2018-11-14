@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: rainfall-app
-        image: gcr.io/koverholt-apps/rainfall:2.2
+        image: gcr.io/koverholt-apps/rainfall:2.3
         ports:
         - containerPort: 5000
